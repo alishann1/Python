@@ -1,8 +1,11 @@
-n = 1 
- 
-# print("Please enter a number: ")
-# i = int(input())  
+# Odd Numbers
 
-# while n <= 10:
-#     print(f"{i} x {n} = {i * n}") 
-#     n = n + 1  
+# for x in range(1, 101):
+#     if x % 2 != 0:
+#         print(x)
+        
+# # Even numbers
+
+# for y in range(1, 101):
+#     if y % 2 == 0:
+#         print(y)
