@@ -21,6 +21,6 @@ class Student:
 
 
 s1 = Student("Nawaz", "2020-2021-00001")
-s2 = Student("Ali", "2020-2021-00002")
+s2 = Student("Ahmed", "2020-2021-00002")
 s1.show()
 s2.show()
