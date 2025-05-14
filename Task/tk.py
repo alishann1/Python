@@ -1,6 +1,5 @@
 import tkinter as tk
 
-
 class Game(tk.Frame):
     def __init__(self, master):
         super(Game, self).__init__(master)
