@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import *
 
 root = tk.Tk()
 root.title("OOPS Assignment by Ali Shan")
