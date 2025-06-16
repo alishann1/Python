@@ -12,29 +12,25 @@ class OOPSAssignmentApp(tk.Tk):
         self.create_widgets()
 
     def create_widgets(self):
-        # Top Label and Entry
+
         tk.Label(self, text="Default input text", bg='#007acc',
                  fg='white', font=('Arial', 10, 'bold')).place(x=50, y=30)
         self.entry = tk.Entry(self, width=40, bg='white', fg='black')
         self.entry.insert(0, "Object Oriented Programming")
         self.entry.place(x=50, y=60)
 
-        # Registration Number
         tk.Label(self, text="Registration number:", bg='#007acc',
                  fg='white', justify="center").place(x=200, y=120)
 
         tk.Label(self, text="2024-KIU-BS5698", bg="white",
                  fg="black", width=15, height=2, relief="raised").place(x=200, y=150)
 
-        # University Name
         tk.Label(self, text="Karakoram International University",
                  font=('Arial', 10, 'bold'), bg='white').place(x=70, y=250)
 
-        # Button
         tk.Button(self, text="Press Me!", width=10,
                   bg='#007acc', fg='white').place(x=150, y=280)
 
-        # First Checkbox and Radio Buttons
         self.allow_radio_var = tk.IntVar(value=1)
         tk.Checkbutton(self, text="Allow radio btns",
                        variable=self.allow_radio_var, bg='#e0e0e0').place(x=550, y=30)
@@ -47,7 +43,6 @@ class OOPSAssignmentApp(tk.Tk):
         tk.Radiobutton(self, text="High", variable=self.level_var,
                        value="High", bg='#e0e0e0').place(x=550, y=120)
 
-        # Second Checkbox and Radio Buttons
         self.allow_radio_2 = tk.IntVar(value=1)
         tk.Checkbutton(self, text="Allow Radio Buttons",
                        variable=self.allow_radio_2, bg='#e0e0e0').place(x=550, y=170)
@@ -60,15 +55,12 @@ class OOPSAssignmentApp(tk.Tk):
         tk.Radiobutton(self, text="Radio Text 3", variable=self.radio_var,
                        value="Radio Text 3", bg='#e0e0e0').place(x=550, y=260)
 
-        # Status Button
         tk.Button(self, text="Show Status", width=12,
                   bg='#007acc', fg='white').place(x=550, y=300)
 
-        # Start Button
         tk.Button(self, text="START", font=('Arial', 12, 'bold'),
                   bg='#007acc', fg='white', width=15, height=2).place(x=550, y=400)
 
-        # Footer Labels
         tk.Label(self, text="This is an assignment of OOPS completed by Ali Shan from BSCS A",
                  bg='#007acc', fg='white', justify='left').place(x=40, y=480)
 
