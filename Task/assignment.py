@@ -9,12 +9,20 @@ class OOPSAssignmentApp(tk.Tk):
         self.geometry("800x600")
         self.configure(bg="#a1c0d5")
 
+        # Load the image (must be .png or .gif for PhotoImage)
+        self.photo = tk.PhotoImage(file="Task/pythonlogo.png")
+
         self.create_widgets()
 
     def create_widgets(self):
+        # Display the image
+        image_label = tk.Label(self, image=self.photo,
+                               bg="#a1c0d5")
+        image_label.place(x=150, y=10)  # You can adjust x and y for placement
 
         tk.Label(self, text="Default input text", bg='#007acc',
                  fg='white', font=('Arial', 10, 'bold')).place(x=50, y=30)
+
         self.entry = tk.Entry(self, width=40, bg='white', fg='black')
         self.entry.insert(0, "Object Oriented Programming")
         self.entry.place(x=50, y=60)
