@@ -12,6 +12,7 @@ pygame.display.set_caption("Tic Tac Toe")
 
 board = [["" for _ in range(3)] for _ in range(3)]
 current_player = "X"
+game_over = False
 
 
 def check_winner(player):
@@ -20,14 +21,21 @@ def check_winner(player):
             return True
 
     for col in range(3):
-        if board[0][col] == player and board[1][col] == player and board[2][col]
-        return True
+        if board[0][col] == player and board[1][col] == player and board[2][col]:
+            return True
     if board[0][0] == player and board[1][1] == player and board[2][2] == player:
         return True
     if board[0][2] == player and board[1][1] == player and board[2][0] == player:
         return True
 
     return False
+
+
+def is_board_full():
+    for row in board:
+        if "" in row:
+            return False
+    return True
 
 
 while True:
@@ -41,9 +49,13 @@ while True:
             col = mouseX // 100
 
             # check if the cell is free
-            if board[row][col] == "":
+            if board[row][col] == "" and not game_over:
                 board[row][col] = current_player
                 print(board)
+
+                if check_winner(current_player):
+                    print(f"Player {current_player} wins!")
+                    game_over = True
 
                 if current_player == "X":
                     current_player = "O"
