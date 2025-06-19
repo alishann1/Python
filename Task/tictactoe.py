@@ -24,6 +24,8 @@ while True:
 
     screen.fill((255, 255, 255))
 
+    # pygame.draw.line(screen, (color), (start pos. x,y), (end pos. x,y), thickness)
+
     pygame.draw.line(screen, (0, 0, 0), (100, 0), (100, 300), 3)
     pygame.draw.line(screen, (0, 0, 0), (200, 0), (200, 300), 3)
 
