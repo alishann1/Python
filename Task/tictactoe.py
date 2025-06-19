@@ -13,16 +13,21 @@ pygame.display.set_caption("Tic Tac Toe")
 board = [["" for _ in range(3)] for _ in range(3)]
 current_player = "X"
 game_over = False
+winner = None
 
 
 def check_winner(player):
-    for row in board:
-        if row.count(player) == 3:
+    # Check rows
+    for row in range(3):
+        if board[row][0] == player and board[row][1] == player and board[row][2] == player:
             return True
 
+    # Check columns
     for col in range(3):
-        if board[0][col] == player and board[1][col] == player and board[2][col]:
+        if board[0][col] == player and board[1][col] == player and board[2][col] == player:
             return True
+
+    # Check diagonals
     if board[0][0] == player and board[1][1] == player and board[2][2] == player:
         return True
     if board[0][2] == player and board[1][1] == player and board[2][0] == player:
@@ -38,9 +43,23 @@ def is_board_full():
     return True
 
 
+def restart_game():
+    global board, current_player, game_over, winner
+    board = [["" for _ in range(3)] for _ in range(3)]
+    current_player = "X"
+    game_over = False
+    winner = None
+
+
+font = pygame.font.SysFont(None, 40)
+
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
+            if game_over:
+                restart_game()
+                continue
             mouseX = event.pos[0]
             mouseY = event.pos[1]
 
@@ -54,13 +73,17 @@ while True:
                 print(board)
 
                 if check_winner(current_player):
-                    print(f"Player {current_player} wins!")
+                    winner = current_player
                     game_over = True
 
-                if current_player == "X":
-                    current_player = "O"
+                elif is_board_full():
+                    print("Match Draw!")
+                    game_over = True
                 else:
-                    current_player = "X"
+                    if current_player == "X":
+                        current_player = "O"
+                    else:
+                        current_player = "X"
 
             print(mouseX, mouseY)
 
@@ -68,7 +91,10 @@ while True:
             pygame.quit()
             sys.exit()
 
-    screen.fill((255, 255, 255))
+    if game_over:
+        screen.fill((100, 100, 100))  # light green for game over
+    else:
+        screen.fill((255, 255, 255))  # white background during game
 
     # pygame.draw.line(screen, (color), (start pos. x,y), (end pos. x,y), thickness)
 
@@ -88,4 +114,15 @@ while True:
             elif board[row][col] == "O":
                 pygame.draw.circle(screen, (255, 0, 0),
                                    (col * 100 + 50, row * 100 + 50), 35, 3)
+
+        if game_over:
+            if winner:  # Only show win message if someone won
+                text = font.render(f"Player {winner} wins!", True, (0, 0, 0))
+            else:  # If game over and no winner, then it's a draw
+                text = font.render("It's a draw!", True, (0, 0, 0))
+
+        # Draw the message in the center of the screen
+            screen.blit(text, (width // 2 - text.get_width() //
+                               2, height // 2 - text.get_height() // 2))
+
     pygame.display.update()
