@@ -3,11 +3,11 @@ import sys
 
 pygame.init()
 
+# the values below are in pixels
 width = 300
 height = 300
 
 screen = pygame.display.set_mode((width, height))
-
 pygame.display.set_caption("Tic Tac Toe")
 
 board = [["" for _ in range(3)] for _ in range(3)]
@@ -116,12 +116,12 @@ while True:
                                    (col * 100 + 50, row * 100 + 50), 35, 3)
 
         if game_over:
-            if winner:  # Only show win message if someone won
+            if winner:  # Win message
                 text = font.render(f"Player {winner} wins!", True, (0, 0, 0))
-            else:  # If game over and no winner, then it's a draw
+            else:  # Draw message
                 text = font.render("It's a draw!", True, (0, 0, 0))
 
-        # Draw the message in the center of the screen
+        # Displays game result
             screen.blit(text, (width // 2 - text.get_width() //
                                2, height // 2 - text.get_height() // 2))
 
