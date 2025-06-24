@@ -92,12 +92,11 @@ while True:
             sys.exit()
 
     if game_over:
-        screen.fill((100, 100, 100))  # light green for game over
+        screen.fill((100, 100, 100))  # grey for game over
     else:
         screen.fill((255, 255, 255))  # white background during game
 
     # pygame.draw.line(screen, (color), (start pos. x,y), (end pos. x,y), thickness)
-
     pygame.draw.line(screen, (0, 0, 0), (100, 0), (100, 300), 3)
     pygame.draw.line(screen, (0, 0, 0), (200, 0), (200, 300), 3)
 
@@ -116,12 +115,16 @@ while True:
                                    (col * 100 + 50, row * 100 + 50), 35, 3)
 
         if game_over:
-            if winner:  # Win message
+
+            # Win message
+            if winner:
                 text = font.render(f"Player {winner} wins!", True, (0, 0, 0))
-            else:  # Draw message
+
+            # Draw message
+            else:
                 text = font.render("It's a draw!", True, (0, 0, 0))
 
-        # Displays game result
+            # Displays game result
             screen.blit(text, (width // 2 - text.get_width() //
                                2, height // 2 - text.get_height() // 2))
 
