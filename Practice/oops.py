@@ -1,17 +1,20 @@
-class Person:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+class Shape:
+    def __init__(self, color):
+        self.color = color
+
+    def describe(self, color):
+        print(f"Color:{color}")
 
 
-class Employee(Person):
-    def __init__(self, name, age, employee_id):
-        super().__init__(name, age)
-        self.employee_id = employee_id
+class Circle(Shape):
+    def __init__(self, color, radius):
+        super().__init__(color)
+        self.radius = radius
 
-    def show_info(self):
-        print({self.name, self.age, self.employee_id})
+    def area(self, radius):
+        return 3.14 * radius ** 2
 
 
-e = Employee("Ali", 19, 101)
-e.show_info()
+c = Circle("Red", 5)
+c.describe()
+c.area()
