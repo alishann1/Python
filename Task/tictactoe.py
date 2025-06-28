@@ -8,7 +8,7 @@ width = 300
 height = 300
 
 screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Tic Tac Toe")
+title = pygame.display.set_caption("Tic Tac Toe")
 
 board = [["" for _ in range(3)] for _ in range(3)]
 current_player = "X"
